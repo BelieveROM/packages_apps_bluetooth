@@ -23,6 +23,10 @@ LOCAL_SHARED_LIBRARIES := \
     liblog \
     libhardware
 
+ifneq ($(strip $(BOARD_HAVE_LEGACY_BLUETOOTH_BCM)),)
+    LOCAL_CFLAGS += -DHAVE_LEGACY_BLUETOOTH_BCM
+endif
+
 #LOCAL_CFLAGS += -O0 -g
 
 LOCAL_MODULE := libbluetooth_jni
